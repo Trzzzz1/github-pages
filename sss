@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    .countdown {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .redirect-message {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Redirecting you in <span id="countdown">3</span> seconds...</h1>
+  <p class="redirect-message">If you are not redirected, <a href="https://flixstreamservice.com/sub" id="redirect-link">click here</a>.</p>
+
+  <script>
+    let countdown = 3; // Countdown time in seconds
+    const countdownElement = document.getElementById('countdown');
+    const redirectLink = document.getElementById('redirect-link').href;
+
+    // Update the countdown every second
+    const interval = setInterval(() => {
+      countdown--;
+      countdownElement.textContent = countdown;
+
+      // When the countdown reaches 0, redirect the user
+      if (countdown <= 0) {
+        clearInterval(interval);
+        window.location.href = redirectLink;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
